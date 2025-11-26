@@ -1,0 +1,811 @@
+matrix,mode,threads,schedule,chunk,time_ms,format
+matrix_mkt/1138_bus.mtx,SEQ,1.0,none,0.0,0.016,CSR
+matrix_mkt/494_bus.mtx,SEQ,1.0,none,0.0,0.006,CSR
+matrix_mkt/bcspwr06.mtx,SEQ,1.0,none,0.0,0.02,CSR
+matrix_mkt/bcspwr08.mtx,SEQ,1.0,none,0.0,0.023,CSR
+matrix_mkt/bcspwr10.mtx,SEQ,1.0,none,0.0,0.086,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,static,0.0,0.06,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,static,1.0,0.09,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,static,10.0,0.056,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,static,50.0,0.052,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,static,100.0,0.051,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,static,0.0,0.028,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,static,1.0,0.053,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,static,10.0,0.033,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,static,50.0,0.029,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,static,100.0,0.029,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,static,0.0,0.018,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,static,1.0,0.052,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,static,10.0,0.029,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,static,50.0,0.022,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,static,100.0,0.023,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,static,0.0,0.015,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,static,1.0,0.035,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,static,10.0,0.025,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,static,50.0,0.017,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,static,100.0,0.018,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,dynamic,0.0,0.155,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,dynamic,1.0,0.136,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,dynamic,10.0,0.06,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,dynamic,50.0,0.053,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,dynamic,100.0,0.051,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,dynamic,0.0,0.125,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,dynamic,1.0,0.124,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,dynamic,10.0,0.038,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,dynamic,50.0,0.028,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,dynamic,100.0,0.029,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,dynamic,0.0,0.145,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,dynamic,1.0,0.121,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,dynamic,10.0,0.034,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,dynamic,50.0,0.022,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,dynamic,100.0,0.02,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,dynamic,0.0,0.183,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,dynamic,1.0,0.223,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,dynamic,10.0,0.036,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,dynamic,50.0,0.022,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,dynamic,100.0,0.016,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,guided,0.0,0.207,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,guided,1.0,0.161,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,guided,10.0,0.092,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,guided,50.0,0.067,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,guided,100.0,0.058,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,guided,0.0,0.077,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,guided,1.0,0.072,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,guided,10.0,0.053,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,guided,50.0,0.039,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,guided,100.0,0.032,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,guided,0.0,0.042,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,guided,1.0,0.041,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,guided,10.0,0.032,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,guided,50.0,0.026,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,guided,100.0,0.021,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,guided,0.0,0.018,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,guided,1.0,0.018,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,guided,10.0,0.019,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,guided,50.0,0.016,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,guided,100.0,0.017,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,auto,0.0,0.18,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,auto,1.0,0.052,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,auto,10.0,0.053,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,auto,50.0,0.051,CSR
+matrix_mkt/1138_bus.mtx,PAR,64.0,auto,100.0,0.185,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,auto,0.0,0.029,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,auto,1.0,0.03,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,auto,10.0,0.027,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,auto,50.0,0.029,CSR
+matrix_mkt/1138_bus.mtx,PAR,32.0,auto,100.0,0.028,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,auto,0.0,0.019,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,auto,1.0,0.019,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,auto,10.0,0.019,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,auto,50.0,0.02,CSR
+matrix_mkt/1138_bus.mtx,PAR,16.0,auto,100.0,0.021,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,auto,0.0,0.014,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,auto,1.0,0.012,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,auto,10.0,0.021,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,auto,50.0,0.014,CSR
+matrix_mkt/1138_bus.mtx,PAR,4.0,auto,100.0,0.012,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,static,0.0,4.361,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,static,1.0,0.074,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,static,10.0,0.059,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,static,50.0,0.054,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,static,100.0,0.091,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,static,0.0,0.03,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,static,1.0,0.048,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,static,10.0,0.032,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,static,50.0,0.029,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,static,100.0,0.029,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,static,0.0,0.02,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,static,1.0,0.04,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,static,10.0,0.025,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,static,50.0,0.017,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,static,100.0,0.021,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,static,0.0,0.015,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,static,1.0,0.029,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,static,10.0,0.016,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,static,50.0,0.013,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,static,100.0,0.012,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,dynamic,0.0,1.338,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,dynamic,1.0,0.119,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,dynamic,10.0,0.062,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,dynamic,50.0,0.056,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,dynamic,100.0,0.056,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,dynamic,0.0,0.094,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,dynamic,1.0,0.091,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,dynamic,10.0,0.036,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,dynamic,50.0,0.03,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,dynamic,100.0,0.03,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,dynamic,0.0,0.096,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,dynamic,1.0,0.089,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,dynamic,10.0,0.029,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,dynamic,50.0,0.021,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,dynamic,100.0,0.019,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,dynamic,0.0,0.115,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,dynamic,1.0,0.108,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,dynamic,10.0,0.021,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,dynamic,50.0,0.015,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,dynamic,100.0,0.013,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,guided,0.0,0.52,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,guided,1.0,1.921,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,guided,10.0,0.084,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,guided,50.0,0.057,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,guided,100.0,0.053,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,guided,0.0,0.072,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,guided,1.0,0.069,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,guided,10.0,0.048,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,guided,50.0,0.034,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,guided,100.0,0.03,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,guided,0.0,0.041,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,guided,1.0,0.037,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,guided,10.0,0.028,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,guided,50.0,0.022,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,guided,100.0,0.02,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,guided,0.0,0.015,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,guided,1.0,0.016,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,guided,10.0,0.013,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,guided,50.0,0.013,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,guided,100.0,0.015,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,auto,0.0,0.071,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,auto,1.0,0.059,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,auto,10.0,0.055,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,auto,50.0,0.056,CSR
+matrix_mkt/494_bus.mtx,PAR,64.0,auto,100.0,0.055,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,auto,0.0,0.031,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,auto,1.0,0.03,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,auto,10.0,0.031,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,auto,50.0,0.029,CSR
+matrix_mkt/494_bus.mtx,PAR,32.0,auto,100.0,0.029,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,auto,0.0,0.021,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,auto,1.0,0.021,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,auto,10.0,0.019,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,auto,50.0,0.02,CSR
+matrix_mkt/494_bus.mtx,PAR,16.0,auto,100.0,0.019,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,auto,0.0,0.013,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,auto,1.0,0.014,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,auto,10.0,0.014,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,auto,50.0,0.016,CSR
+matrix_mkt/494_bus.mtx,PAR,4.0,auto,100.0,0.015,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,static,0.0,0.06,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,static,1.0,0.119,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,static,10.0,0.072,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,static,50.0,0.088,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,static,100.0,0.059,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,static,0.0,0.033,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,static,1.0,0.061,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,static,10.0,0.036,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,static,50.0,0.033,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,static,100.0,0.034,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,static,0.0,0.024,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,static,1.0,0.055,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,static,10.0,0.034,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,static,50.0,0.027,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,static,100.0,0.024,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,static,0.0,0.021,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,static,1.0,0.038,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,static,10.0,0.025,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,static,50.0,0.022,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,static,100.0,0.025,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,dynamic,0.0,0.36,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,dynamic,1.0,0.362,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,dynamic,10.0,0.082,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,dynamic,50.0,0.062,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,dynamic,100.0,0.056,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,dynamic,0.0,0.2,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,dynamic,1.0,0.204,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,dynamic,10.0,0.053,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,dynamic,50.0,0.038,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,dynamic,100.0,0.034,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,dynamic,0.0,0.242,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,dynamic,1.0,0.219,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,dynamic,10.0,0.049,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,dynamic,50.0,0.029,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,dynamic,100.0,0.03,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,dynamic,0.0,0.25,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,dynamic,1.0,0.267,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,dynamic,10.0,0.053,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,dynamic,50.0,0.026,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,dynamic,100.0,0.025,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,guided,0.0,5.122,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,guided,1.0,0.208,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,guided,10.0,0.136,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,guided,50.0,0.073,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,guided,100.0,0.066,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,guided,0.0,0.088,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,guided,1.0,0.081,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,guided,10.0,0.072,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,guided,50.0,0.047,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,guided,100.0,0.039,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,guided,0.0,0.047,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,guided,1.0,0.051,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,guided,10.0,0.04,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,guided,50.0,0.033,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,guided,100.0,0.028,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,guided,0.0,0.024,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,guided,1.0,0.022,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,guided,10.0,0.021,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,guided,50.0,0.02,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,guided,100.0,0.019,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,auto,0.0,0.601,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,auto,1.0,0.057,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,auto,10.0,0.057,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,auto,50.0,4.247,CSR
+matrix_mkt/bcspwr06.mtx,PAR,64.0,auto,100.0,0.063,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,auto,0.0,0.031,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,auto,1.0,0.03,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,auto,10.0,0.031,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,auto,50.0,0.038,CSR
+matrix_mkt/bcspwr06.mtx,PAR,32.0,auto,100.0,0.035,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,auto,0.0,0.022,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,auto,1.0,0.022,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,auto,10.0,0.023,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,auto,50.0,0.026,CSR
+matrix_mkt/bcspwr06.mtx,PAR,16.0,auto,100.0,0.024,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,auto,0.0,0.022,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,auto,1.0,0.016,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,auto,10.0,0.02,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,auto,50.0,0.018,CSR
+matrix_mkt/bcspwr06.mtx,PAR,4.0,auto,100.0,0.017,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,static,0.0,1.41,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,static,1.0,0.109,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,static,10.0,0.069,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,static,50.0,0.063,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,static,100.0,0.097,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,static,0.0,0.035,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,static,1.0,0.071,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,static,10.0,0.042,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,static,50.0,0.034,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,static,100.0,0.035,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,static,0.0,0.023,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,static,1.0,0.066,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,static,10.0,0.032,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,static,50.0,0.024,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,static,100.0,0.028,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,static,0.0,0.017,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,static,1.0,0.045,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,static,10.0,0.033,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,static,50.0,0.022,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,static,100.0,0.019,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,dynamic,0.0,6.932,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,dynamic,1.0,1.527,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,dynamic,10.0,0.139,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,dynamic,50.0,0.06,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,dynamic,100.0,0.058,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,dynamic,0.0,0.172,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,dynamic,1.0,0.174,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,dynamic,10.0,0.045,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,dynamic,50.0,0.034,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,dynamic,100.0,0.033,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,dynamic,0.0,0.197,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,dynamic,1.0,0.18,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,dynamic,10.0,0.04,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,dynamic,50.0,0.026,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,dynamic,100.0,0.03,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,dynamic,0.0,0.323,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,dynamic,1.0,0.255,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,dynamic,10.0,0.046,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,dynamic,50.0,0.025,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,dynamic,100.0,0.021,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,guided,0.0,3.51,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,guided,1.0,0.318,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,guided,10.0,0.115,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,guided,50.0,0.078,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,guided,100.0,0.08,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,guided,0.0,0.082,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,guided,1.0,0.082,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,guided,10.0,0.063,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,guided,50.0,0.046,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,guided,100.0,0.039,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,guided,0.0,0.049,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,guided,1.0,0.051,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,guided,10.0,0.04,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,guided,50.0,0.033,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,guided,100.0,0.03,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,guided,0.0,0.026,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,guided,1.0,0.025,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,guided,10.0,0.024,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,guided,50.0,0.022,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,guided,100.0,0.02,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,auto,0.0,0.064,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,auto,1.0,0.057,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,auto,10.0,0.062,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,auto,50.0,0.062,CSR
+matrix_mkt/bcspwr08.mtx,PAR,64.0,auto,100.0,1.253,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,auto,0.0,0.035,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,auto,1.0,0.033,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,auto,10.0,0.035,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,auto,50.0,0.033,CSR
+matrix_mkt/bcspwr08.mtx,PAR,32.0,auto,100.0,0.033,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,auto,0.0,0.029,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,auto,1.0,0.026,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,auto,10.0,0.026,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,auto,50.0,0.025,CSR
+matrix_mkt/bcspwr08.mtx,PAR,16.0,auto,100.0,0.027,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,auto,0.0,0.021,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,auto,1.0,0.019,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,auto,10.0,0.02,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,auto,50.0,0.02,CSR
+matrix_mkt/bcspwr08.mtx,PAR,4.0,auto,100.0,0.022,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,static,0.0,5.84,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,static,1.0,0.245,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,static,10.0,0.083,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,static,50.0,0.076,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,static,100.0,0.073,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,static,0.0,0.049,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,static,1.0,0.116,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,static,10.0,0.063,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,static,50.0,0.054,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,static,100.0,0.051,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,static,0.0,0.049,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,static,1.0,0.107,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,static,10.0,0.063,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,static,50.0,0.047,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,static,100.0,0.054,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,static,0.0,0.053,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,static,1.0,0.108,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,static,10.0,0.072,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,static,50.0,0.061,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,static,100.0,0.057,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,dynamic,0.0,0.869,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,dynamic,1.0,0.476,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,dynamic,10.0,0.108,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,dynamic,50.0,0.074,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,dynamic,100.0,0.073,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,dynamic,0.0,0.517,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,dynamic,1.0,0.443,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,dynamic,10.0,0.093,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,dynamic,50.0,0.058,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,dynamic,100.0,0.054,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,dynamic,0.0,0.596,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,dynamic,1.0,0.619,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,dynamic,10.0,0.102,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,dynamic,50.0,0.053,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,dynamic,100.0,0.051,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,dynamic,0.0,1.021,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,dynamic,1.0,1.028,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,dynamic,10.0,0.146,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,dynamic,50.0,0.08,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,dynamic,100.0,0.071,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,guided,0.0,1.401,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,guided,1.0,0.178,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,guided,10.0,0.138,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,guided,50.0,0.108,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,guided,100.0,0.113,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,guided,0.0,0.101,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,guided,1.0,0.101,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,guided,10.0,0.082,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,guided,50.0,0.067,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,guided,100.0,0.065,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,guided,0.0,0.075,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,guided,1.0,0.068,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,guided,10.0,0.06,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,guided,50.0,0.053,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,guided,100.0,0.056,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,guided,0.0,0.064,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,guided,1.0,0.063,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,guided,10.0,0.06,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,guided,50.0,0.062,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,guided,100.0,0.057,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,auto,0.0,0.073,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,auto,1.0,0.077,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,auto,10.0,0.069,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,auto,50.0,0.071,CSR
+matrix_mkt/bcspwr10.mtx,PAR,64.0,auto,100.0,0.072,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,auto,0.0,0.049,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,auto,1.0,0.047,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,auto,10.0,0.047,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,auto,50.0,0.048,CSR
+matrix_mkt/bcspwr10.mtx,PAR,32.0,auto,100.0,0.05,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,auto,0.0,0.042,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,auto,1.0,0.047,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,auto,10.0,0.041,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,auto,50.0,0.042,CSR
+matrix_mkt/bcspwr10.mtx,PAR,16.0,auto,100.0,0.046,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,auto,0.0,0.052,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,auto,1.0,0.05,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,auto,10.0,0.056,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,auto,50.0,0.055,CSR
+matrix_mkt/bcspwr10.mtx,PAR,4.0,auto,100.0,0.052,CSR
+matrix_mkt/1138_bus.mtx,SEQUENTIAL (CSB),,,,0.024,CSB
+matrix_mkt/494_bus.mtx,SEQUENTIAL (CSB),,,,0.011,CSB
+matrix_mkt/bcspwr06.mtx,SEQUENTIAL (CSB),,,,0.031,CSB
+matrix_mkt/bcspwr08.mtx,SEQUENTIAL (CSB),,,,0.035,CSB
+matrix_mkt/bcspwr10.mtx,SEQUENTIAL (CSB),,,,0.15,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,static,0.0,11.205,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,static,1.0,1.623,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,static,10.0,0.431,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,static,50.0,4.636,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,static,100.0,3.722,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,static,0.0,0.119,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,static,1.0,0.107,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,static,10.0,0.111,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,static,50.0,0.161,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,static,100.0,0.103,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,static,0.0,0.072,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,static,1.0,0.067,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,static,10.0,0.064,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,static,50.0,0.068,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,static,100.0,0.072,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,static,0.0,0.057,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,static,1.0,0.061,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,static,10.0,0.058,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,static,50.0,0.056,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,static,100.0,0.052,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,dynamic,0.0,20.355,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,dynamic,1.0,20.003,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,dynamic,10.0,17.173,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,dynamic,50.0,20.056,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,dynamic,100.0,9.805,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,dynamic,0.0,0.12,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,dynamic,1.0,0.123,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,dynamic,10.0,0.114,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,dynamic,50.0,0.12,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,dynamic,100.0,0.114,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,dynamic,0.0,0.124,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,dynamic,1.0,0.08,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,dynamic,10.0,0.069,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,dynamic,50.0,0.066,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,dynamic,100.0,0.066,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,dynamic,0.0,0.076,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,dynamic,1.0,0.059,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,dynamic,10.0,0.058,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,dynamic,50.0,0.055,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,dynamic,100.0,0.06,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,guided,0.0,4.139,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,guided,1.0,5.164,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,guided,10.0,2.104,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,guided,50.0,0.369,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,guided,100.0,5.422,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,guided,0.0,0.127,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,guided,1.0,0.101,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,guided,10.0,0.111,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,guided,50.0,0.108,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,guided,100.0,0.114,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,guided,0.0,0.067,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,guided,1.0,0.068,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,guided,10.0,0.063,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,guided,50.0,0.064,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,guided,100.0,0.073,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,guided,0.0,0.061,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,guided,1.0,0.056,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,guided,10.0,0.059,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,guided,50.0,0.059,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,guided,100.0,0.058,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,auto,0.0,2.119,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,auto,1.0,2.541,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,auto,10.0,6.815,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,auto,50.0,0.197,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),64.0,auto,100.0,2.618,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,auto,0.0,0.11,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,auto,1.0,0.111,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,auto,10.0,0.098,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,auto,50.0,0.11,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),32.0,auto,100.0,0.157,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,auto,0.0,0.067,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,auto,1.0,0.063,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,auto,10.0,0.064,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,auto,50.0,0.07,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),16.0,auto,100.0,0.065,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,auto,0.0,0.06,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,auto,1.0,0.064,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,auto,10.0,0.058,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,auto,50.0,0.053,CSB
+matrix_mkt/1138_bus.mtx,PARALLEL (CSB),4.0,auto,100.0,0.06,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,static,0.0,0.208,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,static,1.0,0.519,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,static,10.0,5.651,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,static,50.0,5.155,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,static,100.0,3.656,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,static,0.0,0.106,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,static,1.0,0.107,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,static,10.0,0.104,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,static,50.0,0.103,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,static,100.0,0.104,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,static,0.0,0.07,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,static,1.0,0.06,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,static,10.0,0.063,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,static,50.0,0.063,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,static,100.0,0.061,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,static,0.0,0.045,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,static,1.0,0.046,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,static,10.0,0.049,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,static,50.0,0.058,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,static,100.0,0.049,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,dynamic,0.0,5.146,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,dynamic,1.0,2.124,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,dynamic,10.0,3.2,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,dynamic,50.0,1.643,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,dynamic,100.0,0.461,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,dynamic,0.0,0.109,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,dynamic,1.0,0.105,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,dynamic,10.0,0.102,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,dynamic,50.0,0.098,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,dynamic,100.0,0.102,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,dynamic,0.0,0.063,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,dynamic,1.0,0.064,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,dynamic,10.0,0.059,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,dynamic,50.0,0.063,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,dynamic,100.0,0.059,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,dynamic,0.0,0.045,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,dynamic,1.0,0.045,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,dynamic,10.0,0.046,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,dynamic,50.0,0.043,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,dynamic,100.0,0.046,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,guided,0.0,0.283,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,guided,1.0,0.495,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,guided,10.0,4.132,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,guided,50.0,0.78,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,guided,100.0,3.124,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,guided,0.0,0.107,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,guided,1.0,0.108,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,guided,10.0,0.109,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,guided,50.0,0.1,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,guided,100.0,0.102,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,guided,0.0,0.062,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,guided,1.0,0.075,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,guided,10.0,0.061,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,guided,50.0,0.065,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,guided,100.0,0.067,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,guided,0.0,0.044,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,guided,1.0,0.045,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,guided,10.0,0.041,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,guided,50.0,0.043,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,guided,100.0,0.037,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,auto,0.0,2.095,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,auto,1.0,7.663,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,auto,10.0,1.607,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,auto,50.0,0.597,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),64.0,auto,100.0,2.108,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,auto,0.0,0.108,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,auto,1.0,0.105,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,auto,10.0,0.102,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,auto,50.0,0.102,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),32.0,auto,100.0,0.103,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,auto,0.0,0.066,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,auto,1.0,0.066,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,auto,10.0,0.07,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,auto,50.0,0.066,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),16.0,auto,100.0,0.08,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,auto,0.0,0.045,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,auto,1.0,0.044,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,auto,10.0,0.045,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,auto,50.0,0.042,CSB
+matrix_mkt/494_bus.mtx,PARALLEL (CSB),4.0,auto,100.0,0.045,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,static,0.0,2.11,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,static,1.0,4.678,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,static,10.0,7.63,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,static,50.0,3.635,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,static,100.0,2.151,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,static,0.0,0.116,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,static,1.0,0.131,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,static,10.0,0.127,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,static,50.0,0.119,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,static,100.0,0.111,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,static,0.0,0.068,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,static,1.0,0.074,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,static,10.0,0.074,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,static,50.0,0.078,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,static,100.0,0.078,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,static,0.0,0.086,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,static,1.0,0.065,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,static,10.0,0.068,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,static,50.0,0.065,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,static,100.0,0.072,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,dynamic,0.0,1.608,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,dynamic,1.0,1.117,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,dynamic,10.0,5.168,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,dynamic,50.0,0.925,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,dynamic,100.0,1.608,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,dynamic,0.0,0.114,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,dynamic,1.0,0.114,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,dynamic,10.0,0.115,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,dynamic,50.0,0.116,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,dynamic,100.0,0.117,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,dynamic,0.0,0.084,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,dynamic,1.0,0.077,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,dynamic,10.0,0.078,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,dynamic,50.0,0.075,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,dynamic,100.0,0.082,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,dynamic,0.0,0.065,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,dynamic,1.0,0.068,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,dynamic,10.0,0.095,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,dynamic,50.0,0.081,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,dynamic,100.0,0.074,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,guided,0.0,2.648,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,guided,1.0,1.623,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,guided,10.0,1.113,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,guided,50.0,1.143,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,guided,100.0,2.646,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,guided,0.0,0.124,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,guided,1.0,0.116,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,guided,10.0,0.133,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,guided,50.0,0.12,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,guided,100.0,0.126,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,guided,0.0,0.076,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,guided,1.0,0.086,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,guided,10.0,0.078,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,guided,50.0,0.091,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,guided,100.0,0.079,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,guided,0.0,0.079,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,guided,1.0,0.071,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,guided,10.0,0.073,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,guided,50.0,0.082,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,guided,100.0,0.07,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,auto,0.0,3.13,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,auto,1.0,11.253,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,auto,10.0,20.03,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,auto,50.0,12.342,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),64.0,auto,100.0,12.263,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,auto,0.0,0.126,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,auto,1.0,0.122,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,auto,10.0,0.122,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,auto,50.0,0.117,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),32.0,auto,100.0,0.115,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,auto,0.0,0.082,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,auto,1.0,0.084,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,auto,10.0,0.078,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,auto,50.0,0.079,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),16.0,auto,100.0,0.08,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,auto,0.0,0.064,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,auto,1.0,0.077,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,auto,10.0,0.075,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,auto,50.0,0.069,CSB
+matrix_mkt/bcspwr06.mtx,PARALLEL (CSB),4.0,auto,100.0,0.086,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,static,0.0,2.094,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,static,1.0,1.122,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,static,10.0,3.646,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,static,50.0,0.6,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,static,100.0,0.321,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,static,0.0,0.113,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,static,1.0,0.11,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,static,10.0,0.113,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,static,50.0,0.108,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,static,100.0,0.113,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,static,0.0,0.074,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,static,1.0,0.078,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,static,10.0,0.084,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,static,50.0,0.08,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,static,100.0,0.083,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,static,0.0,0.077,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,static,1.0,0.069,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,static,10.0,0.079,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,static,50.0,0.075,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,static,100.0,0.065,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,dynamic,0.0,6.146,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,dynamic,1.0,4.138,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,dynamic,10.0,0.564,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,dynamic,50.0,0.352,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,dynamic,100.0,3.122,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,dynamic,0.0,0.126,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,dynamic,1.0,0.117,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,dynamic,10.0,0.117,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,dynamic,50.0,0.11,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,dynamic,100.0,0.104,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,dynamic,0.0,0.081,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,dynamic,1.0,0.074,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,dynamic,10.0,0.082,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,dynamic,50.0,0.072,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,dynamic,100.0,0.08,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,dynamic,0.0,0.07,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,dynamic,1.0,0.079,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,dynamic,10.0,0.072,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,dynamic,50.0,0.082,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,dynamic,100.0,0.069,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,guided,0.0,0.747,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,guided,1.0,0.43,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,guided,10.0,6.671,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,guided,50.0,0.37,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,guided,100.0,2.381,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,guided,0.0,0.14,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,guided,1.0,0.127,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,guided,10.0,0.11,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,guided,50.0,0.098,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,guided,100.0,0.104,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,guided,0.0,0.073,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,guided,1.0,0.074,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,guided,10.0,0.076,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,guided,50.0,0.088,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,guided,100.0,0.074,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,guided,0.0,0.07,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,guided,1.0,0.083,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,guided,10.0,0.066,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,guided,50.0,0.082,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,guided,100.0,0.07,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,auto,0.0,4.146,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,auto,1.0,5.076,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,auto,10.0,0.497,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,auto,50.0,0.276,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),64.0,auto,100.0,1.107,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,auto,0.0,0.124,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,auto,1.0,0.108,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,auto,10.0,0.112,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,auto,50.0,0.108,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),32.0,auto,100.0,0.113,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,auto,0.0,0.07,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,auto,1.0,0.076,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,auto,10.0,0.082,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,auto,50.0,0.072,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),16.0,auto,100.0,0.079,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,auto,0.0,0.072,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,auto,1.0,0.075,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,auto,10.0,0.068,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,auto,50.0,0.069,CSB
+matrix_mkt/bcspwr08.mtx,PARALLEL (CSB),4.0,auto,100.0,0.068,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,static,0.0,1.133,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,static,1.0,0.521,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,static,10.0,0.34,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,static,50.0,1.139,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,static,100.0,2.658,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,static,0.0,0.169,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,static,1.0,0.174,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,static,10.0,0.149,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,static,50.0,0.162,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,static,100.0,0.149,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,static,0.0,0.143,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,static,1.0,0.119,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,static,10.0,0.118,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,static,50.0,0.13,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,static,100.0,0.131,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,static,0.0,0.164,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,static,1.0,0.159,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,static,10.0,0.176,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,static,50.0,0.158,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,static,100.0,0.165,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,dynamic,0.0,0.63,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,dynamic,1.0,1.649,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,dynamic,10.0,1.165,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,dynamic,50.0,1.131,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,dynamic,100.0,0.442,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,dynamic,0.0,0.157,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,dynamic,1.0,0.162,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,dynamic,10.0,0.169,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,dynamic,50.0,0.171,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,dynamic,100.0,0.153,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,dynamic,0.0,0.15,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,dynamic,1.0,0.136,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,dynamic,10.0,0.127,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,dynamic,50.0,0.139,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,dynamic,100.0,0.121,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,dynamic,0.0,0.172,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,dynamic,1.0,0.154,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,dynamic,10.0,0.164,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,dynamic,50.0,0.158,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,dynamic,100.0,0.181,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,guided,0.0,1.129,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,guided,1.0,1.633,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,guided,10.0,1.128,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,guided,50.0,6.691,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,guided,100.0,3.678,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,guided,0.0,0.162,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,guided,1.0,0.146,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,guided,10.0,0.163,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,guided,50.0,0.154,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,guided,100.0,0.159,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,guided,0.0,0.115,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,guided,1.0,0.13,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,guided,10.0,0.144,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,guided,50.0,0.141,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,guided,100.0,0.121,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,guided,0.0,0.163,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,guided,1.0,0.188,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,guided,10.0,0.171,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,guided,50.0,0.17,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,guided,100.0,0.161,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,auto,0.0,4.166,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,auto,1.0,4.667,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,auto,10.0,4.157,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,auto,50.0,4.204,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),64.0,auto,100.0,2.14,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,auto,0.0,0.152,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,auto,1.0,0.16,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,auto,10.0,0.139,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,auto,50.0,0.149,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),32.0,auto,100.0,0.146,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,auto,0.0,0.127,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,auto,1.0,0.142,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,auto,10.0,0.132,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,auto,50.0,0.133,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),16.0,auto,100.0,0.122,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,auto,0.0,0.164,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,auto,1.0,0.165,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,auto,10.0,0.164,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,auto,50.0,0.178,CSB
+matrix_mkt/bcspwr10.mtx,PARALLEL (CSB),4.0,auto,100.0,0.156,CSB
