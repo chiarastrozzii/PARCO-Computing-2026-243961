@@ -286,7 +286,24 @@ int main(int argc, char* argv[]){
 
     int local_nnz;
     MPI_Scatter(nnz_rank, 1, MPI_INT, &local_nnz, 1, MPI_INT, 0, MPI_COMM_WORLD); //root process, 1 element sent to each process, type, receiver , number of elements, type, root, communicator
+    
+    int min_nnz, max_nnz, sum_nnz;
+    MPI_Reduce(&local_nnz, &min_nnz, 1, MPI_INT, MPI_MIN, 0, MPI_COMM_WORLD);
+    MPI_Reduce(&local_nnz, &max_nnz, 1, MPI_INT, MPI_MAX, 0, MPI_COMM_WORLD);
+    MPI_Reduce(&local_nnz, &sum_nnz, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
 
+    if (rank == 0) {
+        printf("\nMatrix dimensions: %d x %d with %d non-zero entries\n", n_rows, n_cols, n_nz);
+        printf("Non-zero entries distribution among %d processes:\n", size);
+        printf("Min nnz: %d\n", min_nnz);
+        printf("Max nnz: %d\n", max_nnz);
+        
+        double avg_nnz = (double)sum_nnz / size;
+        printf("Avg nnz: %.2f\n", avg_nnz);
+        
+    }
+
+    
     //each process allocates memory for local buffers
     int *row_local = malloc(local_nnz * sizeof(int));
     int *col_local = malloc(local_nnz * sizeof(int));
@@ -335,58 +352,65 @@ int main(int argc, char* argv[]){
     double *local_result = calloc(local_n_rows, sizeof(double)); //initialize to zero
     spmv(&local_csr, vec, local_result, 1); //using parallel version with OpenMP
 
-    //gather results to rank 0
-    double *y_global = NULL;
-    //rank 0 allocates the full result vector
-    if (rank == 0){
-        y_global = calloc(n_rows, sizeof(double));
+    //GATHER RESULTS TO RANK 0
+    //compute actual number of local rows for each rank based on row_local
+    int actual_local_rows = 0;
+    for (int i = 0; i < local_nnz; i++) {
+        if (row_local[i] + 1 > actual_local_rows)
+            actual_local_rows = row_local[i] + 1; // +1 because local rows are 0-based
     }
 
-    int local_rows = local_n_rows;
+
+    //gather counts from all ranks
     int *receiver_counts = NULL;
     if (rank == 0){
         receiver_counts = malloc(size * sizeof(int));
     }
 
-    //cyclic distribution gives us different sizes per rank, we need to gather the counts first
-    MPI_Gather(&local_rows, 1, MPI_INT, receiver_counts, 1, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Gather(&actual_local_rows, 1, MPI_INT, receiver_counts, 1, MPI_INT, 0, MPI_COMM_WORLD); //many -> one (receiver_counts)
 
-    //compute displacements for gathering
+    //compute displacements for Gatherv
     int *displs = NULL;
     if (rank == 0){
         displs = malloc(size * sizeof(int));
         displs[0] = 0;
-        for (int i=1; i<size; ++i){
+        for (int i = 1; i < size; i++) {
             displs[i] = displs[i - 1] + receiver_counts[i - 1];
         }
     }
 
-    //gather all local results into a buffer, gathers in rank order not global order
+    //allocate gathered buffer
     double *gathered_results = NULL;
     if (rank == 0){
-        gathered_results = malloc(n_rows * sizeof(double));
+        gathered_results = malloc(n_rows * sizeof(double)); // safe max size
     }
 
-    MPI_Gatherv(local_result, local_rows, MPI_DOUBLE, gathered_results, receiver_counts, displs, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    //gather all local results into gathered_results
+    MPI_Gatherv(local_result, actual_local_rows, MPI_DOUBLE, gathered_results, receiver_counts, displs, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
-    //rank 0 can now use the gathered results
+    //reconstruct global vector y
+    double *y_global = NULL;
     if (rank == 0){
+        y_global = calloc(n_rows, sizeof(double)); //rank 0 reconstructs the global result vector
+
         for (int r = 0; r < size; r++) {
             for (int i = 0; i < receiver_counts[r]; i++) {
                 int global_row = r + i * size;
-                y_global[global_row] = gathered_results[displs[r] + i];
+                if(global_row < n_rows)
+                    y_global[global_row] = gathered_results[displs[r] + i];
             }
         }
-    }
 
-    if (rank == 0){
+        //print result vector
         printf("\nResult vector y:\n");
         for (size_t i = 0; i < n_rows; ++i) {
             printf("y[%zu] = %.2f\n", i, y_global[i]);
         }
+
         free(receiver_counts);
         free(displs);
         free(gathered_results);
+        free(y_global);
     }
 
     free(row_local);

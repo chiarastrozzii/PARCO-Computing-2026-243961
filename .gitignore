@@ -1,5 +1,8 @@
 deliverable1/venv/
 deliverable1/csv_files/graphs/
+
 .vscode/
+.DS_Store
 
 deliverable2/spmv
+
