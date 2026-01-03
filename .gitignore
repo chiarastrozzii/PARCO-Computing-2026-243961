@@ -1,3 +1,5 @@
-venv/
-csv_files/graphs/
+deliverable1/venv/
+deliverable1/csv_files/graphs/
 .vscode/
+
+deliverable2/spmv

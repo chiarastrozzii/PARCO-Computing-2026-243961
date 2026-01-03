@@ -1,4 +1,4 @@
-# Parallel Sparse Matrix-Vector Multiplication with OpenMP
+# Deliverables (ReadME needs to be modified)
 
 ## 📌 Overview
 This project evaluates the performance of **Sparse Matrix-Vector Multiplication (SpMV)** implemented using the **Compressed Sparse Row (CSR)** format and parallelized with **OpenMP**.
