@@ -53,3 +53,9 @@ void spmv(const Sparse_CSR* sparse_csr, const double* vec, double* res, int para
     
 
 }
+
+ int block_size(int coord, int n, int p) {
+    int base = n / p;
+    int rem  = n % p;
+    return (coord < rem) ? base + 1 : base;
+}
