@@ -278,6 +278,21 @@ int main(int argc, char* argv[]){
 
         x_local = prepare_x_1D(&local_csr, x_owned, x_owned_len, rank, size, &col_map, &local_x_size, &tot_send, &tot_recv);
 
+        long long comm_bytes =
+        (long long)(tot_send + tot_recv) * (sizeof(int) + sizeof(double));
+
+        long long min_comm, max_comm, sum_comm;
+        MPI_Reduce(&comm_bytes, &min_comm, 1, MPI_LONG_LONG, MPI_MIN, 0, MPI_COMM_WORLD);
+        MPI_Reduce(&comm_bytes, &max_comm, 1, MPI_LONG_LONG, MPI_MAX, 0, MPI_COMM_WORLD);
+        MPI_Reduce(&comm_bytes, &sum_comm, 1, MPI_LONG_LONG, MPI_SUM, 0, MPI_COMM_WORLD);
+
+        if (rank == 0) {
+            printf("\n1D ghost exchange payload per rank (bytes):\n");
+            printf("min per rank: %lld\n", min_comm);
+            printf("max per rank: %lld\n", max_comm);
+            printf("avg per rank: %.2f\n", (double)sum_comm / size);
+        }
+
         //test to see the x_local vec
         //printf("[Rank %d] x_local: ", rank);
         //for (int i = 0; i < local_x_size; i++)
@@ -332,6 +347,39 @@ int main(int argc, char* argv[]){
 
         MPI_Bcast(x_block, x_block_len, MPI_DOUBLE, 0, col_comm);
 
+        //commiunication volume per rank in the case of 2D partitioning
+        long long sent = 0, recv = 0;
+        if (pr == 0) {
+            if (pc == 0) {
+                for (int dest_pc = 1; dest_pc < q; dest_pc++) {
+                    int len = block_size(dest_pc, n_cols, q);
+                    sent += (long long)len * sizeof(double);
+                }
+            } else {
+                recv += (long long)x_block_len * sizeof(double);
+            }
+        }
+
+        if (pr == 0) {
+            sent += (long long)(p - 1) * x_block_len * sizeof(double);
+        } else {
+            recv += (long long)x_block_len * sizeof(double);
+        }
+
+        long long comm_bytes = sent + recv;
+
+        long long min_comm, max_comm, sum_comm;
+        MPI_Reduce(&comm_bytes, &min_comm, 1, MPI_LONG_LONG, MPI_MIN, 0, MPI_COMM_WORLD);
+        MPI_Reduce(&comm_bytes, &max_comm, 1, MPI_LONG_LONG, MPI_MAX, 0, MPI_COMM_WORLD);
+        MPI_Reduce(&comm_bytes, &sum_comm, 1, MPI_LONG_LONG, MPI_SUM, 0, MPI_COMM_WORLD);
+
+        if (rank == 0) {
+            printf("\nCommunication volume per rank (2D x-distribution payload bytes):\n");
+            printf("min per rank: %lld\n", min_comm);
+            printf("max per rank: %lld\n", max_comm);
+            printf("avg per rank: %.2f\n", (double)sum_comm / size);
+        }
+
         x_local = x_block;
         local_x_size = x_block_len;
 
@@ -339,32 +387,7 @@ int main(int argc, char* argv[]){
         MPI_Comm_free(&col_comm);
     }
     
-    long long comm_bytes =
-    (long long)(tot_send + tot_recv) * sizeof(int) +
-    (long long)(tot_send + tot_recv) * sizeof(double);
-
-    long long sent_bytes =
-        (long long)tot_send * sizeof(int) +
-        (long long)tot_send * sizeof(double);
-
-    long long recv_bytes =
-        (long long)tot_recv * sizeof(int) +
-        (long long)tot_recv * sizeof(double);
-
-
-    long long min_comm, max_comm, sum_comm;
-
-    MPI_Reduce(&comm_bytes, &min_comm, 1, MPI_LONG_LONG, MPI_MIN, 0, MPI_COMM_WORLD);
-    MPI_Reduce(&comm_bytes, &max_comm, 1, MPI_LONG_LONG, MPI_MAX, 0, MPI_COMM_WORLD);
-    MPI_Reduce(&comm_bytes, &sum_comm, 1, MPI_LONG_LONG, MPI_SUM, 0, MPI_COMM_WORLD);
-
-    if (rank == 0) {
-        double avg_comm = (double)sum_comm / size;
-        printf("\nGhost exchange communication per rank (bytes):\n");
-        printf("min per rank: %lld\n", min_comm);
-        printf("max per rank: %lld\n", max_comm);
-        printf("avg per rank: %.2f\n", avg_comm);
-    }
+    
 
 
     double *local_result = calloc(local_csr.n_rows, sizeof(double)); //initialize to zero
