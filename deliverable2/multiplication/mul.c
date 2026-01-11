@@ -57,7 +57,7 @@ static int col_owner(int col, int size) {
 double *prepare_x_1D(const Sparse_CSR *csr, const double *x_owned, int x_owned_len, int rank, int size, int **col_map_out, int *local_x_size_out, int *tot_send, int *tot_recv){
     int n_nz = csr->n_nz;
 
-    // Step 1: Collect all unique columns in local rows
+    //collect all unique columns in local rows
     int *uniq_cols = malloc(n_nz * sizeof(int));
     int n_unique = 0;
 
@@ -97,7 +97,7 @@ double *prepare_x_1D(const Sparse_CSR *csr, const double *x_owned, int x_owned_l
         recv_counts[owner]++;
     }
 
-    // Step 4: Prepare recv displacements
+    //prepare recv displacements
     int *recv_displs = malloc(size * sizeof(int));
     recv_displs[0] = 0;
     for (int i = 1; i < size; i++){
@@ -238,11 +238,11 @@ void remapping_columns(Sparse_CSR *csr, int *col_map, int local_x_size, int rank
 }
 
 
-double *gather_res_1D(double *local_result, int actual_local_rows, int local_nnz, int *row_local, int n_rows, int rank, int size){
+double *gather_res_1D(double *local_result, int local_n_rows, int local_nnz, int *row_local, int n_rows, int rank, int size){
     //gather number of local rows for each rank
     for (int i = 0; i < local_nnz; i++) {
-        if (row_local[i] + 1 > actual_local_rows)
-            actual_local_rows = row_local[i] + 1; // +1 because local rows are 0-based
+        if (row_local[i] + 1 > local_n_rows)
+            local_n_rows = row_local[i] + 1; // +1 because local rows are 0-based
     }
 
     //gather counts from all ranks
@@ -251,7 +251,8 @@ double *gather_res_1D(double *local_result, int actual_local_rows, int local_nnz
         receiver_counts = malloc(size * sizeof(int));
     }
 
-    MPI_Gather(&actual_local_rows, 1, MPI_INT, receiver_counts, 1, MPI_INT, 0, MPI_COMM_WORLD); //many -> one (receiver_counts)
+    MPI_Gather(&local_n_rows
+        , 1, MPI_INT, receiver_counts, 1, MPI_INT, 0, MPI_COMM_WORLD); //many -> one (receiver_counts)
 
     //compute displacements for Gatherv
     int *displs = NULL;
@@ -270,7 +271,7 @@ double *gather_res_1D(double *local_result, int actual_local_rows, int local_nnz
     }
 
     //gather all local results into gathered_results
-    MPI_Gatherv(local_result, actual_local_rows, MPI_DOUBLE, gathered_results, receiver_counts, displs, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    MPI_Gatherv(local_result, local_n_rows, MPI_DOUBLE, gathered_results, receiver_counts, displs, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
     //reconstruct global vector y
     double *y_global = NULL;

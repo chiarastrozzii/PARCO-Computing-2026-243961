@@ -217,15 +217,15 @@ int main(int argc, char* argv[]){
 
 
 
-    for (int r = 0; r < size; r++) {
-        MPI_Barrier(MPI_COMM_WORLD);
-        if (rank == r) {
-            printf("\n[Rank %d] Local CSR:\n", rank);
-            print_sparse_csr(&local_csr);
-            fflush(stdout);
-        }
-    }
-    MPI_Barrier(MPI_COMM_WORLD);
+    //for (int r = 0; r < size; r++) {
+    //    MPI_Barrier(MPI_COMM_WORLD);
+    //    if (rank == r) {
+    //        printf("\n[Rank %d] Local CSR:\n", rank);
+    //        print_sparse_csr(&local_csr);
+    //        fflush(stdout);
+    //    }
+    //}
+    //MPI_Barrier(MPI_COMM_WORLD);
 
 
     //rank 0 creates the random vector, which will be broadcasted to all processes
@@ -482,7 +482,9 @@ int main(int argc, char* argv[]){
     }
 
     //vec
-    mem_bytes += (long long)n_cols * sizeof(double);
+    if (rank == 0){
+        mem_bytes += (long long)n_cols * sizeof(double);
+    }
 
     //rank-0 global matrix storage (only on root)
     if (rank == 0) {
@@ -506,25 +508,26 @@ int main(int argc, char* argv[]){
 
 
     //GATHER RESULTS
-    int actual_local_rows = 0;
     if (!is_2D){
-        double *y_global = gather_res_1D(local_result, actual_local_rows, local_nnz, row_local, n_rows, rank, size);
+        double *y_global = gather_res_1D(local_result, local_n_rows, local_nnz, row_local, n_rows, rank, size);
         if (rank == 0){
             //print result vector
-            printf("\nResult vector y [1D CASE]:\n");
-            for (size_t i = 0; i < n_rows; ++i) {
-                printf("y[%zu] = %.2f\n", i, y_global[i]);
-            }
+            //printf("\nResult vector y [1D CASE]:\n");
+            //for (size_t i = 0; i < n_rows; ++i) {
+            //    printf("y[%zu] = %.2f\n", i, y_global[i]);
+            //}
             
             //JUST TO TEST
+            bool ok = true;
             for (int i = 0; i < n_rows; i++) {
                 if (fabs(y_global[i] - y_ref[i]) > 1e-9) {
                     printf("❌ MISMATCH at row %d: parallel=%.6f  ref=%.6f\n", i, y_global[i], y_ref[i]);
-                break;
+                    ok=false;
+                    break;
                 }
             }
+            if (ok) printf("serial check passed!");
 
-            printf("serial reference check passed");
             free(y_ref);
             free(y_global);
         }
@@ -532,18 +535,22 @@ int main(int argc, char* argv[]){
         double *y_global = gather_res_2D(local_result, n_rows, p, q, pr, pc, grid_comm);
         if (pr == 0 && pc == 0){ //only rank (0,0) has the full result
             //print result vector
-            printf("\nResult vector y [2D CASE]:\n");
-            for (size_t i = 0; i < n_rows; ++i) {
-                printf("y[%zu] = %.2f\n", i, y_global[i]);
-            }
+            //printf("\nResult vector y [2D CASE]:\n");
+            //for (size_t i = 0; i < n_rows; ++i) {
+            //    printf("y[%zu] = %.2f\n", i, y_global[i]);
+            //}
 
             //JUST TO TEST
+            bool ok = true;
             for (int i = 0; i < n_rows; i++) {
                 if (fabs(y_global[i] - y_ref[i]) > 1e-9) {
                     printf("❌ MISMATCH at row %d: parallel=%.6f  ref=%.6f\n", i, y_global[i], y_ref[i]);
-                break;
+                    ok = false;
+                    break;
                 }
             }
+
+            if (ok) printf("serial check passed");
 
             free(y_ref);
             free(y_global);
