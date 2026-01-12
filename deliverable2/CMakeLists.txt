@@ -11,7 +11,8 @@ add_executable(spmv
     multiplication/mul.c
 )
 
-target_link_libraries(spmv
+target_link_libraries(spmv 
+    PRIVATE m
     MPI::MPI_C
     OpenMP::OpenMP_C
 )
