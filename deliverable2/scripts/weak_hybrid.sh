@@ -39,6 +39,10 @@ pushd "$RUN_DIR" >/dev/null
 for DIMENSION in "${DIMENSIONS[@]}"; do
   for MODE in "${MODES[@]}"; do
 
+    if [[ "$MODE" == "SEQ" ]]; then
+      continue
+    fi
+
     OUT_FILE="$RESULTS_DIR/all_configs__hybrid__${DIMENSION}__${MODE}.log"
     : > "$OUT_FILE"
 
@@ -76,15 +80,8 @@ for DIMENSION in "${DIMENSIONS[@]}"; do
       echo "MATRIX: $MATRIX_FILE" >>"$OUT_FILE"
       echo "============================================================" >>"$OUT_FILE"
 
-      if [[ "$MODE" == "PAR" ]]; then
-        export OMP_NUM_THREADS="$OMP"
-      else
-        unset OMP_NUM_THREADS || true
-      fi
-
-      if [[ "$MODE" == "PAR" ]]; then
-        echo "OMP_NUM_THREADS=$OMP_NUM_THREADS" >>"$OUT_FILE"
-      fi
+      export OMP_NUM_THREADS="$OMP"
+      echo "OMP_NUM_THREADS=$OMP_NUM_THREADS" >>"$OUT_FILE"
 
       echo "---- MATRIX: $MATRIX_FILE ----" | tee -a "$OUT_FILE"
 
@@ -120,7 +117,6 @@ for DIMENSION in "${DIMENSIONS[@]}"; do
       WEAK_EFF="$WEAK_SPEEDUP"
 
       echo "${MATRIX_FILE},${N},${NNZ},${TOTAL},${NP},${OMP},${DIMENSION},${MODE},${AVG_TIME_S},${P90_TIME_S},${BASELINE_S},${WEAK_SPEEDUP},${WEAK_EFF}" >>"$SUMMARY_CSV"
-
     done
   done
 done
