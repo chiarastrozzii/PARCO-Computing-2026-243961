@@ -27,6 +27,13 @@ if [[ -n "${PBS_NODEFILE:-}" && -f "${PBS_NODEFILE:-}" ]]; then
   MPI_LAUNCH+=( -hostfile "$PBS_NODEFILE" )
 fi
 
+echo "Building project ..."
+pushd "$PROJECT_ROOT" >/dev/null
+./scripts/build_mac.sh   # MODIFY on cluster if needed
+popd >/dev/null
+echo "Build done."
+echo
+
 pushd "$RUN_DIR" >/dev/null
 
 for DIMENSION in "${DIMENSIONS[@]}"; do
