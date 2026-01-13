@@ -108,18 +108,21 @@ void scatter_entries_2D(
         for (int i = 0; i < n_nz; i++) {
             int pr = owner_block(row_indices[i], n_rows, p);
             int pc = owner_block(col_indices[i], n_cols, q);
-
+                
+            if (pr < 0 || pc < 0) {
+                fprintf(stderr, "owner_block failed for (%d,%d)\n", row_indices[i], col_indices[i]);
+                exit(1);
+            }
+        
             int coords[2] = {pr, pc};
             int owner;
             MPI_Cart_rank(grid_comm, coords, &owner);
-
+        
             int pos = displs[owner] + cursor[owner]++;
-            int owner_pr = owner / q;
-            int owner_pc = owner % q;
-
-            int row_start = block_start(owner_pr, n_rows, p);
-            int col_start = block_start(owner_pc, n_cols, q);
-
+        
+            int row_start = block_start(pr, n_rows, p);
+            int col_start = block_start(pc, n_cols, q);
+        
             row_buf[pos] = row_indices[i] - row_start;
             col_buf[pos] = col_indices[i] - col_start;
             val_buf[pos] = values[i];
