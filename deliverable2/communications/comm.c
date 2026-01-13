@@ -51,9 +51,16 @@ void scatter_entries(
         free(cursor);
     }
 
-    MPI_Scatterv(row_buf, nnz_rank, displs, MPI_INT, row_local, local_nnz, MPI_INT, 0, MPI_COMM_WORLD); //works correctly since row_buf is grouped by rank
-    MPI_Scatterv(col_buf, nnz_rank, displs, MPI_INT, col_local, local_nnz, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Scatterv(val_buf, nnz_rank, displs, MPI_DOUBLE, val_local, local_nnz, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    const int *sendcounts_i = (rank == 0) ? nnz_rank : NULL;
+    const int *displs_i     = (rank == 0) ? displs   : NULL;
+
+    const int *row_buf_i    = (rank == 0) ? row_buf  : NULL;
+    const int *col_buf_i    = (rank == 0) ? col_buf  : NULL;
+    const double *val_buf_i = (rank == 0) ? val_buf  : NULL;
+
+    MPI_Scatterv(row_buf_i, sendcounts_i, displs_i, MPI_INT, row_local, local_nnz, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Scatterv(col_buf_i, sendcounts_i, displs_i, MPI_INT, col_local, local_nnz, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Scatterv(val_buf_i, sendcounts_i, displs_i, MPI_DOUBLE, val_local, local_nnz, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
     if (rank == 0) {
         free(row_buf);
@@ -99,8 +106,8 @@ void scatter_entries_2D(
         int *cursor = calloc(size, sizeof(int));
 
         for (int i = 0; i < n_nz; i++) {
-            int pr = row_indices[i] * p / n_rows;
-            int pc = col_indices[i] * q / n_cols;
+            int pr = owner_block(row_indices[i], n_rows, p);
+            int pc = owner_block(col_indices[i], n_cols, q);
 
             int coords[2] = {pr, pc};
             int owner;
@@ -121,13 +128,20 @@ void scatter_entries_2D(
         free(cursor);
     }
 
-    MPI_Scatterv(row_buf, nnz_rank, displs, MPI_INT,
+    const int *sendcounts_i = (rank == 0) ? nnz_rank : NULL;
+    const int *displs_i     = (rank == 0) ? displs   : NULL;
+
+    const int *row_buf_i    = (rank == 0) ? row_buf  : NULL;
+    const int *col_buf_i    = (rank == 0) ? col_buf  : NULL;
+    const double *val_buf_i = (rank == 0) ? val_buf  : NULL;
+
+    MPI_Scatterv(row_buf_i, sendcounts_i, displs_i, MPI_INT,
                  row_local, local_nnz, MPI_INT, 0, grid_comm);
 
-    MPI_Scatterv(col_buf, nnz_rank, displs, MPI_INT,
+    MPI_Scatterv(col_buf_i, sendcounts_i, displs_i, MPI_INT,
                  col_local, local_nnz, MPI_INT, 0, grid_comm);
 
-    MPI_Scatterv(val_buf, nnz_rank, displs, MPI_DOUBLE,
+    MPI_Scatterv(val_buf_i, sendcounts_i, displs_i, MPI_DOUBLE,
                  val_local, local_nnz, MPI_DOUBLE, 0, grid_comm);
 
     if (rank == 0) {
@@ -153,4 +167,17 @@ int block_size(int coord, int n, int p){
     int end = block_start(coord + 1, n, p);
 
     return end-start;
+}
+
+static int owner_block(int idx, int n, int P) {
+    int lo = 0, hi = P - 1;
+    while (lo <= hi) {
+        int mid = (lo + hi) / 2;
+        int s = block_start(mid, n, P);
+        int e = block_start(mid + 1, n, P);
+        if (idx < s) hi = mid - 1;
+        else if (idx >= e) lo = mid + 1;
+        else return mid;
+    }
+    return -1; // should never happen if idx in [0,n)
 }

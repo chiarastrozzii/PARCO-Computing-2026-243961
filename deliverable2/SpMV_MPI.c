@@ -201,6 +201,15 @@ int main(int argc, char* argv[]){
         // ind how many distinct rows this rank owns
         local_n_rows = block_start(pr+1, n_rows, p) - block_start(pr, n_rows, p);
         int local_n_cols = block_start(pc+1, n_cols,q) - block_start(pc, n_cols, q);
+        
+        for (int i = 0; i < local_nnz; i++) {
+            if (row_local[i] < 0 || row_local[i] >= local_n_rows ||
+                col_local[i] < 0 || col_local[i] >= local_n_cols) {
+                fprintf(stderr, "[Rank %d] BAD 2D LOCAL IDX row=%d col=%d (rows=%d cols=%d)\n",
+                        rank, row_local[i], col_local[i], local_n_rows, local_n_cols);
+                MPI_Abort(MPI_COMM_WORLD, 1);
+            }
+        }   
 
         create_sparse_csr(local_n_rows, local_n_cols, local_nnz, row_local, col_local, val_local, &local_csr);
     }
