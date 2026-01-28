@@ -290,68 +290,78 @@ int main(int argc, char* argv[]){
     int tot_recv = 0;
 
     if (!is_2D){
-        int x_owned_len = (n_cols + size - 1 - rank) / size; 
-        double *x_owned = malloc(x_owned_len * sizeof(double));
+        if (size == 1){
+            local_x_size = n_cols;
+            x_local= malloc((size_t)local_x_size * sizeof(double));
+            memcpy(x_local, vec, (size_t)local_x_size * sizeof(double));
 
-        double t0 = MPI_Wtime();
+            if (rank == 0) {
+                printf("\n1D ghost exchange payload per rank (bytes):\n");
+                printf("min per rank: 0\nmax per rank: 0\navg per rank: 0.00\n");
+                fflush(stdout);
+            }
+        }else{
+            int x_owned_len = (n_cols + size - 1 - rank) / size;
+            double *x_owned = malloc(x_owned_len * sizeof(double));
 
-        if (rank == 0) {
-            // send owned pieces to everyone (including self)
-            for (int r = 0; r < size; r++) {
-                int cnt = (n_cols + size - 1 - r) / size;
-                if (r == 0) {
-                    for (int k = 0; k < cnt; k++) x_owned[k] = vec[r + k*size];
-                } else {
-                    double *tmp = malloc(cnt * sizeof(double));
-                    for (int k = 0; k < cnt; k++) tmp[k] = vec[r + k*size];
-                    MPI_Send(tmp, cnt, MPI_DOUBLE, r, 123, MPI_COMM_WORLD);
-                    free(tmp);
+            double t0 = MPI_Wtime();
+            if (rank == 0) {
+                // send owned pieces to everyone (including self)
+                for (int r = 0; r < size; r++) {
+                    int cnt = (n_cols + size - 1 - r) / size;
+                    if (r == 0) {
+                        for (int k = 0; k < cnt; k++) x_owned[k] = vec[r + k*size];
+                    } else {
+                        double *tmp = malloc(cnt * sizeof(double));
+                        for (int k = 0; k < cnt; k++) tmp[k] = vec[r + k*size];
+                        MPI_Send(tmp, cnt, MPI_DOUBLE, r, 123, MPI_COMM_WORLD);
+                        free(tmp);
+                    }
+                }
+
+            }else {
+                MPI_Recv(x_owned, x_owned_len, MPI_DOUBLE, 0, 123, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+            }
+
+            x_local = prepare_x_1D(&local_csr, x_owned, x_owned_len, rank, size, &col_map, &local_x_size, &tot_send, &tot_recv);
+
+            double t1 = MPI_Wtime();
+            comm_time += (t1 - t0); 
+
+            long long comm_bytes =
+            (long long)(tot_send + tot_recv) * (sizeof(int) + sizeof(double));
+
+            long long min_comm, max_comm, sum_comm;
+            MPI_Reduce(&comm_bytes, &min_comm, 1, MPI_LONG_LONG, MPI_MIN, 0, MPI_COMM_WORLD);
+            MPI_Reduce(&comm_bytes, &max_comm, 1, MPI_LONG_LONG, MPI_MAX, 0, MPI_COMM_WORLD);
+            MPI_Reduce(&comm_bytes, &sum_comm, 1, MPI_LONG_LONG, MPI_SUM, 0, MPI_COMM_WORLD);
+
+            if (rank == 0) {
+                printf("\n1D ghost exchange payload per rank (bytes):\n");
+                printf("min per rank: %lld\n", min_comm);
+                printf("max per rank: %lld\n", max_comm);
+                printf("avg per rank: %.2f\n", (double)sum_comm / size);
+            }
+
+            //test to see the x_local vec
+            //printf("[Rank %d] x_local: ", rank);
+            //for (int i = 0; i < local_x_size; i++)
+            //    printf("%f ", x_local[i]);
+            //printf("\n");
+
+            remapping_columns(&local_csr, col_map, local_x_size, rank);
+
+            //test to see if remapping is successfull
+            for (int i = 0; i < local_csr.n_nz; i++) {
+                if (local_csr.col_indices[i] < 0 || local_csr.col_indices[i] >= local_x_size) {
+                    fprintf(stderr, "[Rank %d] BAD LOCAL COL %zu (local_x_size=%d)\n",
+                            rank, local_csr.col_indices[i], local_x_size);
+                    MPI_Abort(MPI_COMM_WORLD, 1);
                 }
             }
 
-        }else {
-            MPI_Recv(x_owned, x_owned_len, MPI_DOUBLE, 0, 123, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+            free(x_owned);
         }
-
-        x_local = prepare_x_1D(&local_csr, x_owned, x_owned_len, rank, size, &col_map, &local_x_size, &tot_send, &tot_recv);
-
-        double t1 = MPI_Wtime();
-        comm_time += (t1 - t0); 
-
-        long long comm_bytes =
-        (long long)(tot_send + tot_recv) * (sizeof(int) + sizeof(double));
-
-        long long min_comm, max_comm, sum_comm;
-        MPI_Reduce(&comm_bytes, &min_comm, 1, MPI_LONG_LONG, MPI_MIN, 0, MPI_COMM_WORLD);
-        MPI_Reduce(&comm_bytes, &max_comm, 1, MPI_LONG_LONG, MPI_MAX, 0, MPI_COMM_WORLD);
-        MPI_Reduce(&comm_bytes, &sum_comm, 1, MPI_LONG_LONG, MPI_SUM, 0, MPI_COMM_WORLD);
-
-        if (rank == 0) {
-            printf("\n1D ghost exchange payload per rank (bytes):\n");
-            printf("min per rank: %lld\n", min_comm);
-            printf("max per rank: %lld\n", max_comm);
-            printf("avg per rank: %.2f\n", (double)sum_comm / size);
-        }
-
-        //test to see the x_local vec
-        //printf("[Rank %d] x_local: ", rank);
-        //for (int i = 0; i < local_x_size; i++)
-        //    printf("%f ", x_local[i]);
-        //printf("\n");
-
-        remapping_columns(&local_csr, col_map, local_x_size, rank);
-
-        //test to see if remapping is successfull
-        for (int i = 0; i < local_csr.n_nz; i++) {
-            if (local_csr.col_indices[i] < 0 || local_csr.col_indices[i] >= local_x_size) {
-                fprintf(stderr, "[Rank %d] BAD LOCAL COL %zu (local_x_size=%d)\n",
-                        rank, local_csr.col_indices[i], local_x_size);
-                MPI_Abort(MPI_COMM_WORLD, 1);
-            }
-        }
-
-        free(x_owned);
-
     }else{
         MPI_Comm_split(grid_comm, pr, pc, &row_comm);
         MPI_Comm_split(grid_comm, pc, pr, &col_comm);
@@ -607,7 +617,7 @@ int main(int argc, char* argv[]){
                 }
             }
             if (ok) printf("serial check passed!\n");
-            
+
             free(y_ref);
             free(y_global);
         }

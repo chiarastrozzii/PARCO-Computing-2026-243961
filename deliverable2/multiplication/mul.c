@@ -8,6 +8,16 @@
 #include <string.h>
 #include <mpi.h>
 
+static const int *g_recv_cols_for_sort = NULL;
+
+static int cmp_idx_by_recvcol(const void *a, const void *b) {
+    int ia = *(const int*)a;
+    int ib = *(const int*)b;
+    int xa = g_recv_cols_for_sort[ia];
+    int xb = g_recv_cols_for_sort[ib];
+    return (xa > xb) - (xa < xb);
+}
+
 void spmv(const Sparse_CSR* sparse_csr, const double* vec, double* res, int parallel){
     if(parallel == 1){
         #pragma omp parallel for schedule(static)
@@ -58,39 +68,38 @@ double *prepare_x_1D(const Sparse_CSR *csr, const double *x_owned, int x_owned_l
     int n_nz = csr->n_nz;
 
     //collect all unique columns in local rows
-    int *uniq_cols = malloc(n_nz * sizeof(int));
-    int n_unique = 0;
+    int *uniq_cols = (int*)malloc((size_t)n_nz * sizeof(int));
+    if (!uniq_cols) { perror("malloc uniq_cols"); MPI_Abort(MPI_COMM_WORLD, 1); }
 
-    for (int i = 0; i < n_nz; i++){
-        int col = csr->col_indices[i];
-        bool found = false;
-        for (int k = 0; k < n_unique; k++){
-            if (uniq_cols[k] == col){
-                found = true;
-                break;
-            }
-        }
-        if (!found) uniq_cols[n_unique++] = col;
+    for (int i = 0; i < n_nz; i++) {
+        uniq_cols[i] = (int)csr->col_indices[i];
     }
-    qsort(uniq_cols, n_unique, sizeof(int), cmp_int);
+
+    qsort(uniq_cols, n_nz, sizeof(int), cmp_int);
+
+    int n_unique = 0;
+    for (int i = 0; i < n_nz; i++) {
+        if (i == 0 || uniq_cols[i] != uniq_cols[i-1]) {
+            uniq_cols[n_unique++] = uniq_cols[i];
+        }
+    }
 
     //split owned vs ghost entries
     int *owned_indices = malloc(n_unique * sizeof(int));
     int *ghost_indices = malloc(n_unique * sizeof(int));
     int n_owned=0, n_ghosts=0;
 
-    for (int i=0; i<n_unique; i++){
+    for (int i = 0; i < n_unique; i++) {
         int col = uniq_cols[i];
-        if(col_owner(col, size) == rank){
+        if (col_owner(col, size) == rank){
             owned_indices[n_owned++] = col;
-        }else{
+        } else {
             ghost_indices[n_ghosts++] = col;
         }
     }
     free(uniq_cols);
 
     //communication of ghost values
-
     int *recv_counts = calloc(size, sizeof(int));
     for (int i = 0; i < n_ghosts; i++){
         int owner = col_owner(ghost_indices[i], size);
@@ -140,7 +149,7 @@ double *prepare_x_1D(const Sparse_CSR *csr, const double *x_owned, int x_owned_l
             MPI_Abort(MPI_COMM_WORLD, 1);
         }
 
-        int li = col/size;
+        int li = (col - rank) / size;
         if (li < 0 || li >= x_owned_len){
             fprintf(stderr, "[Rank %d] ERROR: local index %d out of range for col %d (x_owned_len=%d)\n",
                     rank, li, col, x_owned_len);
@@ -162,7 +171,7 @@ double *prepare_x_1D(const Sparse_CSR *csr, const double *x_owned, int x_owned_l
 
     for (int i = 0; i < n_owned; i++){
         int col = owned_indices[i];
-        int li = col/size;
+        int li = (col - rank) / size;
         if (li < 0 || li >= x_owned_len){
             fprintf(stderr, "[Rank %d] ERROR: owned col %d local index %d out of range (x_owned_len=%d)\n",
                     rank, col, li, x_owned_len);
@@ -172,30 +181,56 @@ double *prepare_x_1D(const Sparse_CSR *csr, const double *x_owned, int x_owned_l
         col_map[i] = col;
     }
 
-    for (int i = 0; i < n_ghosts; i++){
-        int gcol = ghost_indices[i];
-        double val = 0.0;
-        bool ok = false;
-        for (int k = 0; k < total_recv; k++){
-            if (recv_cols[k] == gcol){
-                val = recv_vals[k];
-                ok = true;
-                break;
-            }
-        }
-        if (!ok){
-            fprintf(stderr, "[Rank %d] ERROR: did not receive ghost value for col %d\n", rank, gcol);
-            MPI_Abort(MPI_COMM_WORLD, 1);
-        }
-        x_local[n_owned + i] = val;
-        col_map[n_owned + i] = gcol;
+    // Sort ghost_indices so we can binary-search efficiently
+    if (n_ghosts > 0) {
+        qsort(ghost_indices, n_ghosts, sizeof(int), cmp_int);
     }
+
+    // Build index array [0..total_recv-1] and sort it by recv_cols[idx]
+    int *idx = NULL;
+    if (total_recv > 0) {
+        idx = (int*)malloc((size_t)total_recv * sizeof(int));
+        if (!idx) { perror("malloc idx"); MPI_Abort(MPI_COMM_WORLD, 1); }
+        for (int k = 0; k < total_recv; k++) idx[k] = k;
+
+        g_recv_cols_for_sort = recv_cols;
+        qsort(idx, total_recv, sizeof(int), cmp_idx_by_recvcol);
+        g_recv_cols_for_sort = NULL;
+    }
+
+    // Now for each ghost col, binary search in sorted idx[]
+    for (int i = 0; i < n_ghosts; i++) {
+        int gcol = ghost_indices[i];
+
+        int lo = 0, hi = total_recv - 1;
+        int found_k = -1;
+
+    while (lo <= hi) {
+        int mid = lo + (hi - lo) / 2;
+        int k = idx[mid];
+        int c = recv_cols[k];
+
+        if (c < gcol) lo = mid + 1;
+        else if (c > gcol) hi = mid - 1;
+        else { found_k = k; break; }
+    }
+
+    if (found_k < 0) {
+        fprintf(stderr, "[Rank %d] ERROR: did not receive ghost value for col %d\n", rank, gcol);
+        MPI_Abort(MPI_COMM_WORLD, 1);
+    }
+
+    x_local[n_owned + i] = recv_vals[found_k];
+    col_map[n_owned + i] = gcol;
+    }
+
+    free(idx);
 
     *col_map_out = col_map;
     *local_x_size_out = local_x_size;
     *tot_send = total_send;
     *tot_recv = total_recv;
-        
+
     //cleanup
     free(owned_indices);
     free(ghost_indices);
