@@ -119,7 +119,7 @@ void read_matrix_market_file(
     const char* filename,
     int* n_rows,
     int* n_cols,
-    int* n_nz,          // will be updated to expanded nnz
+    int* n_nz,
     int** row_indices,
     int** col_indices,
     double** values
@@ -137,10 +137,13 @@ void read_matrix_market_file(
         exit(EXIT_FAILURE);
     }
 
+    int is_coordinate = (strstr(line, "coordinate") != NULL);
     int is_pattern = (strstr(line, "pattern") != NULL);
-    int is_real    = (strstr(line, "real")    != NULL);
+    int is_real = (strstr(line, "real") != NULL);
+    int is_symmetric = (strstr(line, "symmetric") != NULL);
+    int is_general = (strstr(line, "general") != NULL);
 
-    if (strstr(line, "coordinate") == NULL || strstr(line, "symmetric") == NULL || (!is_pattern && !is_real)) {
+    if (!is_coordinate || (!is_pattern && !is_real) || (!is_symmetric && !is_general)) {
         fprintf(stderr, "Unsupported MatrixMarket header in %s:\n%s\n", filename, line);
         exit(EXIT_FAILURE);
     }
@@ -196,11 +199,11 @@ void read_matrix_market_file(
         c_tmp[i] = c;
         v_tmp[i] = v;
 
-        if (r != c) offdiag++;
+        if (is_symmetric && r != c) offdiag++;
     }
 
     //expand symmetric entries
-    int expanded_nz = base_nz + offdiag;
+    int expanded_nz = is_symmetric ? (base_nz + offdiag) : base_nz;
 
     *row_indices = (int*)malloc((size_t)expanded_nz * sizeof(int));
     *col_indices = (int*)malloc((size_t)expanded_nz * sizeof(int));
@@ -221,7 +224,7 @@ void read_matrix_market_file(
         (*values)[k] = v;
         k++;
 
-        if (r != c) {
+        if (is_symmetric && r != c) {
             (*row_indices)[k] = c;
             (*col_indices)[k] = r;
             (*values)[k] = v;
