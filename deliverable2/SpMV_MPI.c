@@ -11,7 +11,7 @@
 #include "multiplication/mul.h"
 
 
-#define N_RUNS 100
+#define N_RUNS 10
 
 static int cmp_double(const void* a, const void* b){
     double x = *(const double*)a;
