@@ -93,9 +93,8 @@ for DIMENSION in "${DIMENSIONS[@]}"; do
 
       echo | tee -a "$OUT_FILE"
 
-      AVG_TIME_S="$(tac "$OUT_FILE" | awk '$1=="Avg:" {print $2; exit}')"
-      P90_TIME_S="$(tac "$OUT_FILE" | awk '$1=="P90:" {print $2; exit}')"
-
+      AVG_TIME_S="$(awk '$1=="Avg:" {avg=$2} END{print avg}' "$OUT_FILE")"
+      P90_TIME_S="$(awk '$1=="P90:" {p90=$2} END{print p90}' "$OUT_FILE")"
 
       if [[ -z "${AVG_TIME_S:-}" ]]; then
         echo "WARN: Could not parse Avg time for $MATRIX_FILE (TOTAL=$TOTAL NP=$NP OMP=$OMP $DIMENSION $MODE)" | tee -a "$OUT_FILE"

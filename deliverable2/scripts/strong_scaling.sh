@@ -72,7 +72,8 @@ for DIMENSION in "${DIMENSIONS[@]}"; do
         echo | tee -a "$OUT_FILE"
 
         #to compute efficiency vs speedup
-        AVG_TIME_S="$(tac "$OUT_FILE" | awk '$1=="Avg:" {print $2; exit}')"
+        AVG_TIME_S="$(awk '$1=="Avg:" {avg=$2} END{print avg}' "$OUT_FILE")"
+
 
         if [[ -z "${AVG_TIME_S:-}" ]]; then
           echo "WARN: Could not parse Avg time for $MATRIX NP=$NP $DIMENSION $MODE" | tee -a "$OUT_FILE"
@@ -96,7 +97,7 @@ for DIMENSION in "${DIMENSIONS[@]}"; do
 
         SPEEDUP="$(awk -v b="$BASELINE_S" -v t="$AVG_TIME_S" 'BEGIN{printf "%.6f", b/t}')"
         EFFICIENCY="$(awk -v s="$SPEEDUP" -v p="$NP" 'BEGIN{printf "%.6f", s/p}')"
-        P90_TIME_S="$(tac "$OUT_FILE" | awk '$1=="P90:" {print $2; exit}')"
+        P90_TIME_S="$(awk '$1=="P90:" {p90=$2} END{print p90}' "$OUT_FILE")"
 
         echo "${MATRIX},${DIMENSION},${MODE},${NP},${AVG_TIME_S},${P90_TIME_S},${BASELINE_S},${SPEEDUP},${EFFICIENCY}" >>"$SUMMARY_CSV"
       done
