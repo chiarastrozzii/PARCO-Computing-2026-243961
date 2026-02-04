@@ -29,7 +29,7 @@ deliverable2/scripts/results_weak
 deliverable2/scripts/results_weak_hybrid
 
 #large scale matrices
-#deliverable2/strong_scaling_mtx
+deliverable2/strong_scaling_mtx
 
 #-------------------------------------
 
