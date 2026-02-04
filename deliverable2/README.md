@@ -3,7 +3,7 @@
 This deliverable implements and benchmarks **Sparse Matrix–Vector Multiplication (SpMV)** in **CSR format**, using:
 - **MPI 1D cyclic row partitioning** with ghost exchange
 - **MPI 2D block partitioning** on a Cartesian process grid (p × q)
-- Optional **OpenMP parallelization** for the local SpMV kernel (hybrid runs)
+- **OpenMP parallelization** for the local SpMV kernel (hybrid runs)
 
 The executable supports both decomposition strategies and two execution modes (sequential local kernel vs OpenMP-parallel local kernel).
 All experiments were perfomed on the institutional cluster provided with 142 CPU nodes (7674 cores), 10 GPU nodes and 65 TB of RAM.
