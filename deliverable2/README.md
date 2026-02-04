@@ -68,13 +68,13 @@ cd build
 mpirun -np <P> ./spmv <matrix_file> <1D/2D> <SEQ/PAR>
 ```
 Arguments:
-  - <matrix_file> Matrix Market .mtx file
-  - <1D/2D>: 
-    - 1D: cyclic row partitioning + ghost exchangew
-    - 2D: 2D block partitioning on Cartesian Grid
-  - <SEQ/PAR>:
-    - SEQ = local SpMV computed sequentially
-    - PAR = OpenMP enabled
+  - `<matrix_file>`: Matrix Market .mtx file
+  - `<1D/2D>`: 
+    - `1D`: cyclic row partitioning + ghost exchangew
+    - `2D`: 2D block partitioning on Cartesian Grid
+  - `<SEQ/PAR>`:
+    - `SEQ` = local SpMV computed sequentially
+    - `PAR` = OpenMP enabled
    
 **Example PAR**
 ```bash
@@ -96,17 +96,17 @@ mpirun -np 16 ./spmv random_matrices/A_weak_1024.mtx 2D PAR
 ## Input Matrices
 
 ### Strong-scaling matrices (not included in the repository)
-The following Matrix Market matrices were used for the strong-scaling experiments:
+The following Matrix Market matrices were used for the strong scaling experiments:
 - `af_2_k101.mtx`
 - `af_shell10.mtx`
 - `bone010.mtx`
 - `dielFilterV2real.mtx`
 
 These files are **not committed to the repository due to size constraints**.  
-To reproduce our experiments, download them from the **SuiteSparse Matrix Collection** and place them in:
+To reproduce the experiments, download them from the **SuiteSparse Matrix Collection** and place them in:
 `deliverable2/strong_scaling_mtx/`
 
-### Weak-scaling matrices (synthetic, reproducible)
+### Weak-scaling matrices
 Weak-scaling experiments use **synthetic sparse matrices** generated with the provided Python script:
 ```bash
 #from deliverable2 directory
@@ -125,6 +125,7 @@ Typical usage:
 ```bash
 qsub pbs/<job_file>.pbs
 ```
+
 ## Notes
 When running the experiments on cluster some modifications are needed:
 **In benchmarking scripts**
@@ -140,7 +141,7 @@ When running the experiments on cluster some modifications are needed:
   ```
 - complete number of processes up to 128 in both strong scaling and weak scaling
   - strong scaling -> `PROCS_LIST_DEFAULT=("1" "2" "4" "8" "16" "32" "64" "128")`
-  - weak scaling (pure MPI):
+  - weak scaling (pure MPI) ->
     ```bash
     CONFIG_N=(1000 2000 4000 8000 16000 32000 64000 128000) #modify in cluster till$
     CONFIG_NNZ=(100000 200000 400000 800000 1600000 3200000 6400000 12800000)
@@ -151,7 +152,7 @@ When running the experiments on cluster some modifications are needed:
 **In `.pbs` files**:
 
 Add this line before running the chosen configuration:
-./scripts/build_linux.sh
+`./scripts/build_linux.sh`
 
 
 
