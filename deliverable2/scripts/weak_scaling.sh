@@ -11,8 +11,8 @@ MODES=("SEQ" "PAR")
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$SCRIPT_DIR/.."
-RUN_DIR="$PROJECT_ROOT/build"                  # ./spmv is here
-RANDOM_DIR="$PROJECT_ROOT/random_matrices"     # matrices live here
+RUN_DIR="$PROJECT_ROOT/build" 
+RANDOM_DIR="$PROJECT_ROOT/random_matrices" 
 
 RESULTS_DIR="$SCRIPT_DIR/results_weak/"
 mkdir -p "$RESULTS_DIR"
@@ -32,7 +32,7 @@ fi
 
 echo "Building project ..."
 pushd "$PROJECT_ROOT" >/dev/null
-./scripts/build_mac.sh   # MODIFY on cluster if needed
+./scripts/build_mac.sh   #remove in cluster since build moved inside pbs file
 popd >/dev/null
 echo "Build done."
 echo
@@ -100,7 +100,7 @@ for DIMENSION in "${DIMENSIONS[@]}"; do
         continue
       fi
 
-      # Baseline for weak scaling: NP=1
+      #baseline for weak scaling: NP=1
       if (( NP == 1 )); then
         BASELINE_S="$AVG_TIME_S"
       fi

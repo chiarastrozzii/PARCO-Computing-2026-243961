@@ -5,7 +5,7 @@ DIMENSIONS=("1D" "2D")
 MODES=("SEQ" "PAR")
 TOTAL_THREADS_LIST=("1" "2" "4" "8") #modify in cluster
 
-# Per-thread baseline problem size (matches your generator idea)
+#per-thread baseline problem size (matches your generator idea)
 BASE_N=1000
 BASE_NNZ=100000
 
@@ -29,7 +29,7 @@ fi
 
 echo "Building project ..."
 pushd "$PROJECT_ROOT" >/dev/null
-./scripts/build_mac.sh   # MODIFY on cluster if needed
+./scripts/build_mac.sh   #remove in cluster since build moved inside pbs file
 popd >/dev/null
 echo "Build done."
 echo

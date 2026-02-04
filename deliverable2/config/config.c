@@ -72,49 +72,6 @@ void free_sparse_csr(Sparse_CSR* sparse_csr){
     free(sparse_csr-> values);
 }
 
-
-//void read_matrix_market_file(
-//    const char* filename,
-//    int* n_rows,
-//    int* n_cols,
-//    int* n_nz,
-//    int** row_indices,
-//    int** col_indices,
-//    double** values
-//){
-//    FILE* f = fopen(filename, "r");
-//    if (f == NULL){
-//        fprintf(stderr, "Error opening file: %s\n", filename);
-//        exit(EXIT_FAILURE);
-//    }
-//
-//    char line[256];
-//    do{
-//        if(!fgets(line, sizeof(line), f)) {
-//            fprintf(stderr, "Unexpected end of file\n");
-//            exit(EXIT_FAILURE);
-//        }
-//    }while (line[0] == '%');
-//
-//    sscanf(line, "%d %d %d", n_rows, n_cols, n_nz);
-//    //allocates memory without overriding
-//    *row_indices = malloc((*n_nz) * sizeof(int));
-//    *col_indices = malloc((*n_nz) * sizeof(int));
-//    *values = malloc((*n_nz) * sizeof(double));
-//
-//
-//    for (size_t i = 0; i < *n_nz; ++i) {
-//        int r, c;
-//        double v;
-//        fscanf(f, "%d %d %lf", &r, &c, &v);
-//        (*row_indices)[i] = r - 1; // convert to 0-based index
-//        (*col_indices)[i] = c - 1; // convert to 0-based index
-//        (*values)[i] = v;
-//    }
-//
-//    fclose(f);
-//}
-
 void read_matrix_market_file(
     const char* filename,
     int* n_rows,

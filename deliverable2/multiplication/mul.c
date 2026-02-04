@@ -288,8 +288,7 @@ double *gather_res_1D(double *local_result, int local_n_rows, int local_nnz, int
         displs = malloc(size * sizeof(int));
     }
 
-    MPI_Gather(&local_n_rows
-        , 1, MPI_INT, receiver_counts, 1, MPI_INT, 0, MPI_COMM_WORLD); //many -> one (receiver_counts)
+    MPI_Gather(&local_n_rows, 1, MPI_INT, receiver_counts, 1, MPI_INT, 0, MPI_COMM_WORLD); //many -> one (receiver_counts)
 
     //compute displacements for Gatherv
     if (rank == 0){

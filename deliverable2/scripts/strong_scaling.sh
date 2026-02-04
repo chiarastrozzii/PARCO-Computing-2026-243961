@@ -10,7 +10,7 @@ MATRICES=(
 
 DIMENSIONS=("1D" "2D")
 MODES=("SEQ" "PAR")
-PROCS_LIST_DEFAULT=("1" "2" "4" "8") #modify in cluster
+PROCS_LIST_DEFAULT=("1" "2" "4" "8") #modify in cluster, up to 128
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$SCRIPT_DIR/.."
@@ -25,14 +25,14 @@ echo
 
 echo "Building project (cd .. && ./scripts/build_mac.sh) ..."
 pushd "$PROJECT_ROOT" >/dev/null
-./scripts/build_mac.sh #MODIFY IN CLUSTER
+./scripts/build_mac.sh #REMOVE IN CLUSTER since build moved inside pbs file
 popd >/dev/null
 echo "Build done."
 echo
 
 pushd "$RUN_DIR" >/dev/null
 
-# One file per (DIMENSION, MODE, NP) — all matrices appended inside
+#one file per (DIMENSION, MODE, NP) — all matrices appended inside
 for DIMENSION in "${DIMENSIONS[@]}"; do
   for MODE in "${MODES[@]}"; do
 
@@ -80,11 +80,11 @@ for DIMENSION in "${DIMENSIONS[@]}"; do
           continue
         fi
 
-        # Store baseline (NP=1) per (matrix, dimension, mode) in a variable name
+        #store baseline (NP=1) per (matrix, dimension, mode) in a variable name
         BASELINE_FILE="$RESULTS_DIR/baselines__${DIMENSION}__${MODE}.csv"
         touch "$BASELINE_FILE"
 
-        # Save / load baseline (NP=1) per matrix
+        #save / load baseline (NP=1) per matrix
         if (( NP == 1 )); then
           grep -v "^${MATRIX}," "$BASELINE_FILE" > "${BASELINE_FILE}.tmp" || true
           mv "${BASELINE_FILE}.tmp" "$BASELINE_FILE"

@@ -248,7 +248,7 @@ int main(int argc, char* argv[]){
     }
 
 
-
+    //test print of local CSR
     //for (int r = 0; r < size; r++) {
     //    MPI_Barrier(MPI_COMM_WORLD);
     //    if (rank == r) {
@@ -279,8 +279,6 @@ int main(int argc, char* argv[]){
             y_ref[r] += values[k] * vec[c];
         }
     }
-
-    //MPI_Bcast(vec, n_cols, MPI_DOUBLE, 0, MPI_COMM_WORLD); //simple, memory heavy approach
 
     double *x_local;
     int *col_map = NULL;
@@ -328,8 +326,7 @@ int main(int argc, char* argv[]){
             double t1 = MPI_Wtime();
             comm_time += (t1 - t0); 
 
-            long long comm_bytes =
-            (long long)(tot_send + tot_recv) * (sizeof(int) + sizeof(double));
+            long long comm_bytes = (long long)(tot_send + tot_recv) * (sizeof(int) + sizeof(double));
 
             long long min_comm, max_comm, sum_comm;
             MPI_Reduce(&comm_bytes, &min_comm, 1, MPI_LONG_LONG, MPI_MIN, 0, MPI_COMM_WORLD);

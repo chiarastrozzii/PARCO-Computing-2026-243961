@@ -52,11 +52,11 @@ void scatter_entries(
     }
 
     const int *sendcounts_i = (rank == 0) ? nnz_rank : NULL;
-    const int *displs_i     = (rank == 0) ? displs   : NULL;
+    const int *displs_i = (rank == 0) ? displs : NULL;
 
-    const int *row_buf_i    = (rank == 0) ? row_buf  : NULL;
-    const int *col_buf_i    = (rank == 0) ? col_buf  : NULL;
-    const double *val_buf_i = (rank == 0) ? val_buf  : NULL;
+    const int *row_buf_i = (rank == 0) ? row_buf : NULL;
+    const int *col_buf_i = (rank == 0) ? col_buf : NULL;
+    const double *val_buf_i = (rank == 0) ? val_buf : NULL;
 
     MPI_Scatterv(row_buf_i, sendcounts_i, displs_i, MPI_INT, row_local, local_nnz, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Scatterv(col_buf_i, sendcounts_i, displs_i, MPI_INT, col_local, local_nnz, MPI_INT, 0, MPI_COMM_WORLD);
