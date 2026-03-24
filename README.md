@@ -19,6 +19,8 @@ Study on the performance of the SpMV in CSR format with different OpenMP schedul
 
 → See `deliverable1/README.md` for build instructions and usage.
 
+→ Technical Report: [Analysis of OpenMP Scheduling (PDF)](reports/Strozzi-D1-243961.pdf)
+
 ### 📁 Deliverable 2
 Contains the distributed and hybrid parallel implementations:
 - MPI 1D cyclic row partitioning
@@ -27,6 +29,8 @@ Contains the distributed and hybrid parallel implementations:
 - Strong and weak scaling experiments
 
 → See `deliverable2/README.md` for detailed documentation.
+
+→ Technical Report: [Analysis of MPI Scaling (PDF)](reports/Strozzi-243961-D2.pdf)
 
 ---
 
